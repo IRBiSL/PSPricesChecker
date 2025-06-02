@@ -68,7 +68,6 @@ class PSPriceChecker:
         Thread(target=self.cbr_exchange_rates, daemon=True).start()
 
     def cbr_exchange_rates(self):
-        """Получает актуальные курсы валют с ЦБ РФ"""
         try:
             currency.cbr_exchange_rates()
             self.root.after(0, lambda: messagebox.showinfo(
