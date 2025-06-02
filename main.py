@@ -57,7 +57,6 @@ class PSPriceChecker:
         )
         self.results_area.pack(fill=tk.BOTH, expand=True, pady=5)
 
-        # Статус бар
         self.status_var = tk.StringVar()
         self.status_var.set("Готов к поиску")
         status_bar = ttk.Label(main_frame, textvariable=self.status_var, relief=tk.SUNKEN)
