@@ -7,10 +7,10 @@ from threading import Thread
 import currency
 
 
-class PSPriceChecker:
+class PSPricesChecker:
     def __init__(self, root):
         self.root = root
-        self.root.title("PS Store Price Checker")
+        self.root.title("PS Store Prices Checker")
         self.root.geometry("800x600")
         self.setup_ui()
 
@@ -170,5 +170,5 @@ class PSPriceChecker:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = PSPriceChecker(root)
+    app = PSPricesChecker(root)
     root.mainloop()
