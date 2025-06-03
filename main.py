@@ -141,7 +141,7 @@ class PSPricesChecker:
                     results.append(f"\n{region_name} - игры не найдены\n")
                     continue
 
-                results.append(f"\n{region_name} - найдено {len(game_cards)} игр:\n")
+                results.append(f"\n{region_name} - найдено {len(game_cards)} игр(ы):\n")
 
                 for i, card in enumerate(game_cards[:], 1):
                     try:
