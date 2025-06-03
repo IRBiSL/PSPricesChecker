@@ -147,7 +147,15 @@ class PSPricesChecker:
                     try:
                         title = card.find('span', {'class': 'psw-t-body psw-c-t-1 psw-t-truncate-2 psw-m-b-2'}).text.strip()
                         price = card.find('span', {'class': 'psw-m-r-3'})
-                        price_info = f"Цена: {price.text}"
+                        if not price:
+                            discount_price = card.find('span', {'class': 'psw-body-2 psw-c-t-2 psw-t-bold'})
+                            if discount_price:
+                                original_price = card.find('s', {'class': 'psw-body-2 psw-c-t-1'})
+                                price_info = f"Цена со скидкой: {discount_price.text} (было: {original_price.text if original_price else '?'})"
+                            else:
+                                price_info = "Бесплатно или цена недоступна"
+                        else:
+                            price_info = f"Цена: {price.text}"
                         results.append(f"{i}. {title} | {price_info}\n")
                     except Exception as e:
                         continue
